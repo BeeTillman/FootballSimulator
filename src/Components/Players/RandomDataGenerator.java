@@ -47,15 +47,15 @@ public class RandomDataGenerator {
     public RandomDataGenerator(){}
 
     public String getRandomName(){
-        Random rFirst = new Random(42);
-        Random rLast = new Random(rFirst.nextInt());
+        Random rFirst = new Random();
+        Random rLast = new Random();
         String firstName = _firstName[rFirst.nextInt(_firstName.length)];
         String lastName = _lastName[rLast.nextInt(_lastName.length)];
         return firstName + " " + lastName;
     }
 
     public int getRandomJerseyNumber(int[] existingJerseys){
-        Random rJersey = new Random(42);
+        Random rJersey = new Random();
         int rNum = rJersey.nextInt(99);
         if (Arrays.asList(existingJerseys).contains(rNum)){
             getRandomJerseyNumber(existingJerseys);
