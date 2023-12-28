@@ -1,5 +1,4 @@
-package Components;
-import Components.StatTypes;
+package Components.Players;
 
 public class PlayerStats {
     private int yardsPassing;

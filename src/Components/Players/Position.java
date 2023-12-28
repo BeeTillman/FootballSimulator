@@ -1,5 +1,4 @@
-package Components;
-import Components.PositionSide;
+package Components.Players;
 
 public enum Position {
     // Offense
