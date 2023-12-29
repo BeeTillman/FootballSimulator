@@ -129,7 +129,7 @@ public class Team {
 
     @Override
     public String toString() {
-        return "[ " + teamCity + teamMascot + " ]" + "\n" +
+        return "[ " + teamCity + " " + teamMascot + " ]" + "\n" +
                 "QBs:" + "\n" + Arrays.toString(QBs) + "\n" +
                 "RBs:" + "\n" + Arrays.toString(RBs) + "\n" +
                 "WRs:" + "\n" + Arrays.toString(WRs) + "\n" +

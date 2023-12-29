@@ -12,6 +12,7 @@ The Football Simulator is a software application that simulates football matches
 
 - Generate Team with random city and mascot
 - Fill team with players, with customizable player count per position
+- Automatically reorder depth chart based on player ratings
 - Generate players with random names and ratings
 - Store players stats
 
