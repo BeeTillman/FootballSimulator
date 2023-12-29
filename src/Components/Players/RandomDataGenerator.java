@@ -44,6 +44,26 @@ public class RandomDataGenerator {
                     "Thompson", "Tiernan", "Tisler"
             };
 
+    String[] _teamCities = new String[]
+            { "Arizona", "Atlanta", "Baltimore", "Buffalo", "Carolina",
+                    "Chicago", "Cincinnati", "Cleveland", "Dallas", "Denver",
+                    "Detroit", "Green Bay", "Houston", "Indianapolis", "Jacksonville",
+                    "Kansas City", "Los Angeles", "Miami", "Minnesota", "New England",
+                    "New Orleans", "New York", "Oakland", "Philadelphia", "Pittsburgh",
+                    "San Diego", "San Francisco", "Seattle", "Tampa Bay", "Tennessee",
+                    "Washington"
+            };
+
+    String[] _teamMascots = new String[]
+            { "Cardinals", "Falcons", "Ravens", "Bills", "Panthers",
+                    "Bears", "Bengals", "Browns", "Cowboys", "Broncos",
+                    "Lions", "Packers", "Texans", "Colts", "Jaguars",
+                    "Chiefs", "Rams", "Dolphins", "Vikings", "Patriots",
+                    "Saints", "Giants", "Raiders", "Eagles", "Steelers",
+                    "Chargers", "49ers", "Seahawks", "Buccaneers", "Titans",
+                    "Redskins"
+            };
+
     public RandomDataGenerator(){}
 
     public String getRandomName(){
@@ -66,5 +86,15 @@ public class RandomDataGenerator {
     public int getRandomRating(){
         Random rRating = new Random();
         return rRating.nextInt(99);
+    }
+
+    public String getRandomTeamCity(){
+        Random rCity = new Random();
+        return _teamCities[rCity.nextInt(_teamCities.length)];
+    }
+
+    public String getRandomTeamMascot(){
+        Random rMascot = new Random();
+        return _teamMascots[rMascot.nextInt(_teamMascots.length)];
     }
 }

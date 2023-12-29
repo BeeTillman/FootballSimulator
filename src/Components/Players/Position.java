@@ -10,7 +10,7 @@ public enum Position {
     OT(PositionSide.Offense), // Offensive Line
     OG(PositionSide.Offense), // Offensive Line
     C(PositionSide.Offense), // Offensive Line
-    
+
     // Special Teams
     K(PositionSide.SpecialTeams), // Kicker
     P(PositionSide.SpecialTeams), // Punter
@@ -18,8 +18,7 @@ public enum Position {
 
     // Defense
     CB(PositionSide.Defense), // Cornerback
-    SS(PositionSide.Defense), // Strong Safety
-    FS(PositionSide.Defense), // Free Safety
+    S(PositionSide.Defense), // Strong Safety
     MLB(PositionSide.Defense), // Middle Linebacker
     OLB(PositionSide.Defense), // Outside Linebacker
     DE(PositionSide.Defense), // Defensive End
