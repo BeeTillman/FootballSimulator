@@ -59,13 +59,19 @@ public abstract class Player {
     }
 
 
+//    @Override
+//    public String toString() {
+//        return "Player Info\n" +
+//                "Name: " + this.name + "\n" +
+//                "Position: " + this.position + "\n" +
+//                "Rating: " + this.rating + "\n" +
+//                "Jersey: " + this.jerseyNum + "\n" +
+//                "Stats: " + this.playerStats + "\n";
+//    }
+
+
     @Override
     public String toString() {
-        return "Player Info\n" +
-                "Name: " + this.name + "\n" +
-                "Position: " + this.position + "\n" +
-                "Rating: " + this.rating + "\n" +
-                "Jersey: " + this.jerseyNum + "\n" +
-                "Stats: " + this.playerStats + "\n";
+        return "[ " + this.name + " | " + this.position + " | " + this.rating + " ]";
     }
 }

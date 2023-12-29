@@ -6,6 +6,7 @@ import Components.Players.PositionedPlayers.OffensivePlayer;
 import Components.Players.RandomDataGenerator;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Team {
 
@@ -82,6 +83,8 @@ public class Team {
             LSs[i] = new OffensivePlayer(Position.LS);
         }
 
+        reOrderDepthChart();
+
         for (int i = 0; i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs + numCBs + numSs + numMLBs + numKs + numPs + numLSs; i++) { // Add players to players array
             if (i < numQBs) { // Add QBs
                 players[i] = QBs[i];
@@ -121,154 +124,43 @@ public class Team {
 
     // Reorder players in depth chart
     public void reOrderDepthChart(){
-        for (int i = 0; i < numQBs; i++) { // Reorder QBs in depth chart
-            if (QBs[i].getRating() < QBs[i + 1].getRating()) {
-                setDepthChartPosition(QBs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numRBs; i++) { // Reorder RBs in depth chart
-            if (RBs[i].getRating() < RBs[i + 1].getRating()) {
-                setDepthChartPosition(RBs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numWRs; i++) { // Reorder WRs in depth chart
-            if (WRs[i].getRating() < WRs[i + 1].getRating()) {
-                setDepthChartPosition(WRs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numTEs; i++) { // Reorder TEs in depth chart
-            if (TEs[i].getRating() < TEs[i + 1].getRating()) {
-                setDepthChartPosition(TEs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numOTs; i++) { // Reorder OTs in depth chart
-            if (OTs[i].getRating() < OTs[i + 1].getRating()) {
-                setDepthChartPosition(OTs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numOGs; i++) { // Reorder OGs in depth chart
-            if (OGs[i].getRating() < OGs[i + 1].getRating()) {
-                setDepthChartPosition(OGs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numCs; i++) { // Reorder Cs in depth chart
-            if (Cs[i].getRating() < Cs[i + 1].getRating()) {
-                setDepthChartPosition(Cs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numDEs; i++) { // Reorder DEs in depth chart
-            if (DEs[i].getRating() < DEs[i + 1].getRating()) {
-                setDepthChartPosition(DEs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numDTs; i++) { // Reorder DTs in depth chart
-            if (DTs[i].getRating() < DTs[i + 1].getRating()) {
-                setDepthChartPosition(DTs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numOLBs; i++) { // Reorder OLBs in depth chart
-            if (OLBs[i].getRating() < OLBs[i + 1].getRating()) {
-                setDepthChartPosition(OLBs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numCBs; i++) { // Reorder CBs in depth chart
-            if (CBs[i].getRating() < CBs[i + 1].getRating()) {
-                setDepthChartPosition(CBs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numSs; i++) { // Reorder Ss in depth chart
-            if (Ss[i].getRating() < Ss[i + 1].getRating()) {
-                setDepthChartPosition(Ss[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numMLBs; i++) { // Reorder MLBs in depth chart
-            if (MLBs[i].getRating() < MLBs[i + 1].getRating()) {
-                setDepthChartPosition(MLBs[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numKs; i++) { // Reorder Ks in depth chart
-            if (Ks[i].getRating() < Ks[i + 1].getRating()) {
-                setDepthChartPosition(Ks[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numPs; i++) { // Reorder Ps in depth chart
-            if (Ps[i].getRating() < Ps[i + 1].getRating()) {
-                setDepthChartPosition(Ps[i + 1], 1);
-            }
-        }
-        for (int i = 0; i < numLSs; i++) { // Reorder LSs in depth chart
-            if (LSs[i].getRating() < LSs[i + 1].getRating()) {
-                setDepthChartPosition(LSs[i + 1], 1);
-            }
-        }
+        Arrays.sort(QBs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(RBs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(WRs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(TEs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(OTs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(OGs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(Cs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(DEs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(DTs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(OLBs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(CBs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(Ss, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(MLBs, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(Ks, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(Ps, Comparator.comparing(Player::getRating).reversed());
+        Arrays.sort(LSs, Comparator.comparing(Player::getRating).reversed());
     }
 
-    public void setDepthChartPosition(Player player, int position){
-        switch(player.getPosition()){
-            case QB:
-                QBs[Arrays.asList(QBs).indexOf(player)] = QBs[position];
-                QBs[position] = player;
-                break;
-            case RB:
-                RBs[Arrays.asList(RBs).indexOf(player)] = RBs[position];
-                RBs[position] = player;
-                break;
-            case WR:
-                WRs[Arrays.asList(WRs).indexOf(player)] = WRs[position];
-                WRs[position] = player;
-                break;
-            case TE:
-                TEs[Arrays.asList(TEs).indexOf(player)] = TEs[position];
-                TEs[position] = player;
-                break;
-            case OT:
-                OTs[Arrays.asList(OTs).indexOf(player)] = OTs[position];
-                OTs[position] = player;
-                break;
-            case OG:
-                OGs[Arrays.asList(OGs).indexOf(player)] = OGs[position];
-                OGs[position] = player;
-                break;
-            case C:
-                Cs[Arrays.asList(Cs).indexOf(player)] = Cs[position];
-                Cs[position] = player;
-                break;
-            case DE:
-                DEs[Arrays.asList(DEs).indexOf(player)] = DEs[position];
-                DEs[position] = player;
-                break;
-            case DT:
-                DTs[Arrays.asList(DTs).indexOf(player)] = DTs[position];
-                DTs[position] = player;
-                break;
-            case OLB:
-                OLBs[Arrays.asList(OLBs).indexOf(player)] = OLBs[position];
-                OLBs[position] = player;
-                break;
-            case CB:
-                CBs[Arrays.asList(CBs).indexOf(player)] = CBs[position];
-                CBs[position] = player;
-                break;
-            case S:
-                Ss[Arrays.asList(Ss).indexOf(player)] = Ss[position];
-                Ss[position] = player;
-                break;
-            case MLB:
-                MLBs[Arrays.asList(MLBs).indexOf(player)] = MLBs[position];
-                MLBs[position] = player;
-                break;
-            case K:
-                Ks[Arrays.asList(Ks).indexOf(player)] = Ks[position];
-                Ks[position] = player;
-                break;
-            case P:
-                Ps[Arrays.asList(Ps).indexOf(player)] = Ps[position];
-                Ps[position] = player;
-                break;
-            case LS:
-                LSs[Arrays.asList(LSs).indexOf(player)] = LSs[position];
-                LSs[position] = player;
-                break;
-        }
+    @Override
+    public String toString() {
+        return "[ " + teamCity + teamMascot + " ]" +
+                ", QBs=" + Arrays.toString(QBs) + "\n" +
+                ", RBs=" + Arrays.toString(RBs) + "\n" +
+                ", WRs=" + Arrays.toString(WRs) + "\n" +
+                ", TEs=" + Arrays.toString(TEs) + "\n" +
+                ", OTs=" + Arrays.toString(OTs) + "\n" +
+                ", OGs=" + Arrays.toString(OGs) + "\n" +
+                ", Cs=" + Arrays.toString(Cs) + "\n" +
+                ", DEs=" + Arrays.toString(DEs) + "\n" +
+                ", DTs=" + Arrays.toString(DTs) + "\n" +
+                ", OLBs=" + Arrays.toString(OLBs) + "\n" +
+                ", CBs=" + Arrays.toString(CBs) + "\n" +
+                ", Ss=" + Arrays.toString(Ss) + "\n" +
+                ", MLBs=" + Arrays.toString(MLBs) + "\n" +
+                ", Ks=" + Arrays.toString(Ks) + "\n" +
+                ", Ps=" + Arrays.toString(Ps) + "\n" +
+                ", LSs=" + Arrays.toString(LSs) + "\n" +
+                '}';
     }
 }

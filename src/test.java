@@ -1,10 +1,12 @@
 import Components.Players.Player;
 import Components.Players.Position;
 import Components.Players.PositionedPlayers.OffensivePlayer;
+import Components.Teams.Team;
 
 public class test {
     public static void main(String[] args){
-        Player player = new OffensivePlayer(Position.QB);
-        System.out.println(player);
+        Team teamOne = new Team();
+        teamOne.generatePlayers();
+        System.out.println(teamOne);
     }
 }
