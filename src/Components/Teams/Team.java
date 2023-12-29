@@ -32,98 +32,83 @@ public class Team {
         this.teamMascot = new RandomDataGenerator().getRandomTeamMascot();
     }
 
-    // Generate players for each position and add them to the players array
+    /**
+     * Generates players for each position and adds them to the players array.
+     * Also reorders the players in the depth chart.
+     */
     public void generatePlayers() {
-        for (int i = 0; i < numQBs; i++) { // Generate QBs
-            QBs[i] = new OffensivePlayer(Position.QB);
+        int index = 0;
+        // Generate QBs
+        for (int i = 0; i < numQBs; i++) {
+            players[index++] = QBs[i] = new OffensivePlayer(Position.QB);
         }
-        for (int i = 0; i < numRBs; i++) { // Generate RBs
-            RBs[i] = new OffensivePlayer(Position.RB);
+        // Generate RBs
+        for (int i = 0; i < numRBs; i++) {
+            players[index++] = RBs[i] = new OffensivePlayer(Position.RB);
         }
-        for (int i = 0; i < numWRs; i++) { // Generate WRs
-            WRs[i] = new OffensivePlayer(Position.WR);
+        // Generate WRs
+        for (int i = 0; i < numWRs; i++) {
+            players[index++] = WRs[i] = new OffensivePlayer(Position.WR);
         }
-        for (int i = 0; i < numTEs; i++) { // Generate TEs
-            TEs[i] = new OffensivePlayer(Position.TE);
+        // Generate TEs
+        for (int i = 0; i < numTEs; i++) {
+            players[index++] = TEs[i] = new OffensivePlayer(Position.TE);
         }
-        for (int i = 0; i < numOTs; i++) { // Generate OTs
-            OTs[i] = new OffensivePlayer(Position.OT);
+        // Generate OTs
+        for (int i = 0; i < numOTs; i++) {
+            players[index++] = OTs[i] = new OffensivePlayer(Position.OT);
         }
-        for (int i = 0; i < numOGs; i++) { // Generate OGs
-            OGs[i] = new OffensivePlayer(Position.OG);
+        // Generate OGs
+        for (int i = 0; i < numOGs; i++) {
+            players[index++] = OGs[i] = new OffensivePlayer(Position.OG);
         }
-        for (int i = 0; i < numCs; i++) { // Generate Cs
-            Cs[i] = new OffensivePlayer(Position.C);
+        // Generate Cs
+        for (int i = 0; i < numCs; i++) {
+            players[index++] = Cs[i] = new OffensivePlayer(Position.C);
         }
-        for (int i = 0; i < numDEs; i++) { // Generate DEs
-            DEs[i] = new OffensivePlayer(Position.DE);
+        // Generate DEs
+        for (int i = 0; i < numDEs; i++) {
+            players[index++] = DEs[i] = new OffensivePlayer(Position.DE);
         }
-        for (int i = 0; i < numDTs; i++) { // Generate DTs
-            DTs[i] = new OffensivePlayer(Position.DT);
+        // Generate DTs
+        for (int i = 0; i < numDTs; i++) {
+            players[index++] = DTs[i] = new OffensivePlayer(Position.DT);
         }
-        for (int i = 0; i < numOLBs; i++) { // Generate OLBs
-            OLBs[i] = new OffensivePlayer(Position.OLB);
+        // Generate OLBs
+        for (int i = 0; i < numOLBs; i++) {
+            players[index++] = OLBs[i] = new OffensivePlayer(Position.OLB);
         }
-        for (int i = 0; i < numCBs; i++) { // Generate CBs
-            CBs[i] = new OffensivePlayer(Position.CB);
+        // Generate CBs
+        for (int i = 0; i < numCBs; i++) {
+            players[index++] = CBs[i] = new OffensivePlayer(Position.CB);
         }
-        for (int i = 0; i < numSs; i++) { // Generate Ss
-            Ss[i] = new OffensivePlayer(Position.S);
+        // Generate Ss
+        for (int i = 0; i < numSs; i++) {
+            players[index++] = Ss[i] = new OffensivePlayer(Position.S);
         }
-        for (int i = 0; i < numMLBs; i++) { // Generate MLBs
-            MLBs[i] = new OffensivePlayer(Position.MLB);
+        // Generate MLBs
+        for (int i = 0; i < numMLBs; i++) {
+            players[index++] = MLBs[i] = new OffensivePlayer(Position.MLB);
         }
-        for (int i = 0; i < numKs; i++) { // Generate Ks
-            Ks[i] = new OffensivePlayer(Position.K);
+        // Generate Ks
+        for (int i = 0; i < numKs; i++) {
+            players[index++] = Ks[i] = new OffensivePlayer(Position.K);
         }
-        for (int i = 0; i < numPs; i++) { // Generate Ps
-            Ps[i] = new OffensivePlayer(Position.P);
+        // Generate Ps
+        for (int i = 0; i < numPs; i++) {
+            players[index++] = Ps[i] = new OffensivePlayer(Position.P);
         }
-        for (int i = 0; i < numLSs; i++) { // Generate LSs
-            LSs[i] = new OffensivePlayer(Position.LS);
+        // Generate LSs
+        for (int i = 0; i < numLSs; i++) {
+            players[index++] = LSs[i] = new OffensivePlayer(Position.LS);
         }
 
         reOrderDepthChart();
-
-        for (int i = 0; i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs + numCBs + numSs + numMLBs + numKs + numPs + numLSs; i++) { // Add players to players array
-            if (i < numQBs) { // Add QBs
-                players[i] = QBs[i];
-            } else if (i < numQBs + numRBs) { // Add RBs
-                players[i] = RBs[i - numQBs];
-            } else if (i < numQBs + numRBs + numWRs) { // Add WRs
-                players[i] = WRs[i - numQBs - numRBs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs) { // Add TEs
-                players[i] = TEs[i - numQBs - numRBs - numWRs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs) { // Add OTs
-                players[i] = OTs[i - numQBs - numRBs - numWRs - numTEs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs) { // Add OGs
-                players[i] = OGs[i - numQBs - numRBs - numWRs - numTEs - numOTs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs) { // Add Cs
-                players[i] = Cs[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs) { // Add DEs
-                players[i] = DEs[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs) { // Add DTs
-                players[i] = DTs[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs - numDEs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs) { // Add OLBs
-                players[i] = OLBs[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs - numDEs - numDTs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs + numCBs) { // Add CBs
-                players[i] = CBs[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs - numDEs - numDTs - numOLBs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs + numCBs + numSs) { // Add Ss
-                players[i] = Ss[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs - numDEs - numDTs - numOLBs - numCBs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs + numCBs + numSs + numMLBs) { // Add MLBs
-                players[i] = MLBs[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs - numDEs - numDTs - numOLBs - numCBs - numSs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs + numCBs + numSs + numMLBs + numKs) { // Add Ks
-                players[i] = Ks[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs - numDEs - numDTs - numOLBs - numCBs - numSs - numMLBs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs + numCBs + numSs + numMLBs + numKs + numPs) { // Add Ps
-                players[i] = Ps[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs - numDEs - numDTs - numOLBs - numCBs - numSs - numMLBs - numKs];
-            } else if (i < numQBs + numRBs + numWRs + numTEs + numOTs + numOGs + numCs + numDEs + numDTs + numOLBs + numCBs + numSs + numMLBs + numKs + numPs + numLSs) { // Add LSs
-                players[i] = LSs[i - numQBs - numRBs - numWRs - numTEs - numOTs - numOGs - numCs - numDEs - numDTs - numOLBs - numCBs - numSs - numMLBs - numKs - numPs];
-            }
-        }
     }
 
     // Reorder players in depth chart
     public void reOrderDepthChart(){
+        // Sort players by rating in descending order for each position
         Arrays.sort(QBs, Comparator.comparing(Player::getRating).reversed());
         Arrays.sort(RBs, Comparator.comparing(Player::getRating).reversed());
         Arrays.sort(WRs, Comparator.comparing(Player::getRating).reversed());
