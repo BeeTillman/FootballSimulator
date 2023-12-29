@@ -129,23 +129,23 @@ public class Team {
 
     @Override
     public String toString() {
-        return "[ " + teamCity + teamMascot + " ]" + "\n" +
-                "QBs:" + "\n" + Arrays.toString(QBs) + "\n" +
-                "RBs:" + "\n" + Arrays.toString(RBs) + "\n" +
-                "WRs:" + "\n" + Arrays.toString(WRs) + "\n" +
-                "TEs:" + "\n" + Arrays.toString(TEs) + "\n" +
-                "OTs:" + "\n" + Arrays.toString(OTs) + "\n" +
-                "OGs:" + "\n" + Arrays.toString(OGs) + "\n" +
-                "Cs:" + "\n" + Arrays.toString(Cs) + "\n" +
-                "DEs:" + "\n" + Arrays.toString(DEs) + "\n" +
-                "DTs:" + "\n" + Arrays.toString(DTs) + "\n" +
-                "OLBs:" + "\n" + Arrays.toString(OLBs) + "\n" +
-                "CBs:" + "\n" + Arrays.toString(CBs) + "\n" +
-                "Ss:" + "\n" + Arrays.toString(Ss) + "\n" +
-                "MLBs:" + "\n" + Arrays.toString(MLBs) + "\n" +
-                "Ks:" + "\n" + Arrays.toString(Ks) + "\n" +
-                "Ps:" + "\n" + Arrays.toString(Ps) + "\n" +
-                "LSs:" + "\n" + Arrays.toString(LSs) + "\n" +
+        return "[ " + teamCity + teamMascot + " ]" +
+                ", QBs=" + Arrays.toString(QBs) + "\n" +
+                ", RBs=" + Arrays.toString(RBs) + "\n" +
+                ", WRs=" + Arrays.toString(WRs) + "\n" +
+                ", TEs=" + Arrays.toString(TEs) + "\n" +
+                ", OTs=" + Arrays.toString(OTs) + "\n" +
+                ", OGs=" + Arrays.toString(OGs) + "\n" +
+                ", Cs=" + Arrays.toString(Cs) + "\n" +
+                ", DEs=" + Arrays.toString(DEs) + "\n" +
+                ", DTs=" + Arrays.toString(DTs) + "\n" +
+                ", OLBs=" + Arrays.toString(OLBs) + "\n" +
+                ", CBs=" + Arrays.toString(CBs) + "\n" +
+                ", Ss=" + Arrays.toString(Ss) + "\n" +
+                ", MLBs=" + Arrays.toString(MLBs) + "\n" +
+                ", Ks=" + Arrays.toString(Ks) + "\n" +
+                ", Ps=" + Arrays.toString(Ps) + "\n" +
+                ", LSs=" + Arrays.toString(LSs) + "\n" +
                 '}';
     }
 
