@@ -7,7 +7,15 @@ public enum Position {
     FB(PositionSide.Offense), // Fullback
     WR(PositionSide.Offense), // Wide Receiver
     TE(PositionSide.Offense), // Tight End
-    OL(PositionSide.Offense), // Offensive Line
+    OT(PositionSide.Offense), // Offensive Line
+    OG(PositionSide.Offense), // Offensive Line
+    C(PositionSide.Offense), // Offensive Line
+    
+    // Special Teams
+    K(PositionSide.SpecialTeams), // Kicker
+    P(PositionSide.SpecialTeams), // Punter
+    LS(PositionSide.SpecialTeams), // Long Snapper
+
     // Defense
     CB(PositionSide.Defense), // Cornerback
     SS(PositionSide.Defense), // Strong Safety

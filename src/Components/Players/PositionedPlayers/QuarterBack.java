@@ -1,6 +1,9 @@
-package Components.Players;
+package Components.Players.PositionedPlayers;
 
-public class QuarterBack extends Player{
+import Components.Players.Player;
+import Components.Players.Position;
+
+public class QuarterBack extends Player {
     public QuarterBack(Position position) {
         super(position);
     }

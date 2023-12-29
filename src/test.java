@@ -1,6 +1,6 @@
 import Components.Players.Player;
 import Components.Players.Position;
-import Components.Players.QuarterBack;
+import Components.Players.PositionedPlayers.QuarterBack;
 
 public class test {
     public static void main(String[] args){
