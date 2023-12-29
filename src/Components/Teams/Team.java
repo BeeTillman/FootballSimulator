@@ -130,6 +130,10 @@ public class Team {
     @Override
     public String toString() {
         return "[ " + teamCity + " " + teamMascot + " ]" + "\n" +
+                "[ Team Rating: " + getTeamRating() + " ]" + "\n" +
+                "[ Offense Rating: " + getTeamOffenseRating() + " ]" + "\n" +
+                "[ Defense Rating: " + getTeamDefenseRating() + " ]" + "\n" +
+                "[ Special Teams Rating: " + getTeamSpecialRating() + " ]" + "\n" +
                 "QBs:" + "\n" + Arrays.toString(QBs) + "\n" +
                 "RBs:" + "\n" + Arrays.toString(RBs) + "\n" +
                 "WRs:" + "\n" + Arrays.toString(WRs) + "\n" +
@@ -178,5 +182,75 @@ public class Team {
             case LS -> LSs;
             default -> players;
         };
+    }
+
+    public int getTeamOffenseRating() {
+        int rating = 0;
+        rating += QBs[0].getRating() * 2; // Weighted rating for QB
+        for (int i = 0; i < 2; i++) {
+            rating += RBs[i].getRating();
+        }
+        for (int i = 0; i < 3; i++) {
+            rating += WRs[i].getRating();
+        }
+        for (int i = 0; i < 2; i++) {
+            rating += TEs[i].getRating();
+        }
+        for (int i = 0; i < 2; i++) {
+            rating += OTs[i].getRating();
+        }
+        for (int i = 0; i < 2; i++) {
+            rating += OGs[i].getRating();
+        }
+        rating += Cs[0].getRating();
+        
+        // Adjust the rating to be between 0 and 100
+        rating = Math.max(0, Math.min(99, rating/12));
+        
+        return rating;
+    }
+
+    public int getTeamDefenseRating(){
+        int rating = 0;
+        for (int i = 0; i < 2; i++) {
+            rating += DEs[i].getRating();
+        }
+        for (int i = 0; i < 2; i++) {
+            rating += DTs[i].getRating();
+        }
+        for (int i = 0; i < 2; i++) {
+            rating += OLBs[i].getRating();
+        }
+        rating += 1.1 * CBs[0].getRating(); // Weighted rating for CB
+        for (int i = 1; i < 2; i++) {
+            rating += CBs[i].getRating();
+        }
+        for (int i = 0; i < 2; i++) {
+            rating += Ss[i].getRating();
+        }
+        rating += 1.1 * MLBs[0].getRating(); // Weighted rating for MLB
+        return Math.max(0, Math.min(99, rating/9));
+    }
+
+    public int getTeamSpecialRating(){
+        int rating = 0;
+        rating += Ks[0].getRating();
+        rating += Ps[0].getRating();
+        rating += 0.9 * LSs[0].getRating(); // Weighted rating for LS
+        rating = Math.max(0, Math.min(99, rating/3)); // Adjust the rating to be between 0 and 99
+        return rating;
+    }
+
+    public int getTeamRating() {
+        int offenseRating = getTeamOffenseRating();
+        int defenseRating = getTeamDefenseRating();
+        int specialRating = getTeamSpecialRating();
+
+        // Adjust the weights for offense, defense, and special teams ratings
+        int weightedRating = (4 * offenseRating + 4 * defenseRating + specialRating) / 9;
+
+        // Ensure the overall team rating is between 0 and 100
+        int overallRating = Math.max(0, Math.min(100, weightedRating));
+        return overallRating;
     }
 }
