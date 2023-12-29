@@ -12,6 +12,7 @@ public class PlayerStats {
     private int sacks;
     private int interceptions;
 
+    // Default Constructor
     public PlayerStats() {
         this.yardsPassing = 0;
         this.yardsRushing = 0;
@@ -24,8 +25,22 @@ public class PlayerStats {
         this.sacks = 0;
         this.interceptions = 0;
     }
+    
+    // Copy Constructor
+    public PlayerStats(PlayerStats playerStats){
+        this.yardsPassing = playerStats.yardsPassing;
+        this.yardsRushing = playerStats.yardsRushing;
+        this.yardsReceiving = playerStats.yardsReceiving;
+        this.tdPassing = playerStats.tdPassing;
+        this.tdRushing = playerStats.tdRushing;
+        this.tdReceiving = playerStats.tdReceiving;
+        this.tackles = playerStats.tackles;
+        this.tacklesForLoss = playerStats.tacklesForLoss;
+        this.sacks = playerStats.sacks;
+        this.interceptions = playerStats.interceptions;
+    }
 
-    // Adjust Stats
+    // Adjust , Get , and Set Stats
 
     public void adjStat(StatTypes type, int delta){
         switch (type){
@@ -42,100 +57,50 @@ public class PlayerStats {
         }
     }
 
+    public int getStat(StatTypes type){
+        switch (type){
+            case PassingTDs -> { return this.tdPassing; }
+            case PassingYards -> { return this.yardsPassing; }
+            case RushingTDs -> { return this.tdRushing; }
+            case RushingYards -> { return this.yardsRushing; }
+            case ReceivingTds -> { return this.tdReceiving; }
+            case ReceivingYards -> { return this.yardsReceiving; }
+            case Tackles -> { return this.tackles; }
+            case TacklesForLoss -> { return this.tacklesForLoss; }
+            case Sacks -> { return this.sacks; }
+            case Interceptions -> { return this.interceptions; }
+        }
+        return 0;
+    }
+
+    public void setStat(StatTypes type, int value){
+        switch (type){
+            case PassingTDs -> { this.tdPassing = value; }
+            case PassingYards -> { this.yardsPassing = value; }
+            case RushingTDs -> { this.tdRushing = value; }
+            case RushingYards -> { this.yardsRushing = value; }
+            case ReceivingTds -> { this.tdReceiving = value; }
+            case ReceivingYards -> { this.yardsReceiving = value; }
+            case Tackles -> { this.tackles = value; }
+            case TacklesForLoss -> { this.tacklesForLoss = value; }
+            case Sacks -> { this.sacks = value; }
+            case Interceptions -> { this.interceptions = value; }
+        }
+    }
+
     @Override
     public String toString() {
         return
                 "Passing Yards: " + yardsPassing + "\n" +
-                "Rushing Yards=" + yardsRushing + "\n" +
-                "Receiving Yards=" + yardsReceiving + "\n" +
-                "Passing TDs=" + tdPassing + "\n" +
-                "Rushing TDs=" + tdRushing + "\n" +
-                "Receiving TDs=" + tdReceiving + "\n" +
-                "Tackles=" + tackles + "\n" +
-                "Tackles For Loss=" + tacklesForLoss + "\n" +
-                "Sacks=" + sacks + "\n" +
-                "Interceptions=" + interceptions + "\n";
+                "Rushing Yards: " + yardsRushing + "\n" +
+                "Receiving Yards: " + yardsReceiving + "\n" +
+                "Passing TDs: " + tdPassing + "\n" +
+                "Rushing TDs: " + tdRushing + "\n" +
+                "Receiving TDs: " + tdReceiving + "\n" +
+                "Tackles: " + tackles + "\n" +
+                "Tackles For Loss: " + tacklesForLoss + "\n" +
+                "Sacks: " + sacks + "\n" +
+                "Interceptions: " + interceptions + "\n";
     }
 
-    // Getters and Setters
-
-    public int getYardsPassing() {
-        return yardsPassing;
-    }
-
-    public void setYardsPassing(int yardsPassing) {
-        this.yardsPassing = yardsPassing;
-    }
-
-    public int getYardsRushing() {
-        return yardsRushing;
-    }
-
-    public void setYardsRushing(int yardsRushing) {
-        this.yardsRushing = yardsRushing;
-    }
-
-    public int getYardsReceiving() {
-        return yardsReceiving;
-    }
-
-    public void setYardsReceiving(int yardsReceiving) {
-        this.yardsReceiving = yardsReceiving;
-    }
-
-    public int getTdPassing() {
-        return tdPassing;
-    }
-
-    public void setTdPassing(int tdPassing) {
-        this.tdPassing = tdPassing;
-    }
-
-    public int getTdRushing() {
-        return tdRushing;
-    }
-
-    public void setTdRushing(int tdRushing) {
-        this.tdRushing = tdRushing;
-    }
-
-    public int getTdReceiving() {
-        return tdReceiving;
-    }
-
-    public void setTdReceiving(int tdReceiving) {
-        this.tdReceiving = tdReceiving;
-    }
-
-    public int getTackles() {
-        return tackles;
-    }
-
-    public void setTackles(int tackles) {
-        this.tackles = tackles;
-    }
-
-    public int getTacklesForLoss() {
-        return tacklesForLoss;
-    }
-
-    public void setTacklesForLoss(int tacklesForLoss) {
-        this.tacklesForLoss = tacklesForLoss;
-    }
-
-    public int getSacks() {
-        return sacks;
-    }
-
-    public void setSacks(int sacks) {
-        this.sacks = sacks;
-    }
-
-    public int getInterceptions() {
-        return interceptions;
-    }
-
-    public void setInterceptions(int interceptions) {
-        this.interceptions = interceptions;
-    }
 }

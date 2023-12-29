@@ -4,7 +4,7 @@ import Components.Players.QuarterBack;
 
 public class test {
     public static void main(String[] args){
-        Player player = new QuarterBack(Position.QB, 87);
+        Player player = new QuarterBack(Position.QB);
         System.out.println(player);
     }
 }
