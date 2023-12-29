@@ -62,4 +62,9 @@ public class RandomDataGenerator {
         }
         return rNum;
     }
+
+    public int getRandomRating(){
+        Random rRating = new Random();
+        return rRating.nextInt(99);
+    }
 }

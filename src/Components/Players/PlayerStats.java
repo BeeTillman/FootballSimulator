@@ -42,6 +42,22 @@ public class PlayerStats {
         }
     }
 
+    @Override
+    public String toString() {
+        return "PlayerStats{" +
+                "Passing Yards=" + yardsPassing +
+                ", Rushing Yards=" + yardsRushing +
+                ", Receiving Yards=" + yardsReceiving +
+                ", Passing TDs=" + tdPassing +
+                ", Rushing TDs=" + tdRushing +
+                ", Receiving TDs=" + tdReceiving +
+                ", Tackles=" + tackles +
+                ", Tackles For Loss=" + tacklesForLoss +
+                ", Sacks=" + sacks +
+                ", Interceptions=" + interceptions +
+                '}';
+    }
+
     // Getters and Setters
 
     public int getYardsPassing() {
