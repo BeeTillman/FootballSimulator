@@ -2,7 +2,9 @@ package Components.Teams;
 
 import Components.Players.Player;
 import Components.Players.Position;
+import Components.Players.PositionedPlayers.DefensivePlayer;
 import Components.Players.PositionedPlayers.OffensivePlayer;
+import Components.Players.PositionedPlayers.SpecialTeamsPlayer;
 import Components.Players.RandomDataGenerator;
 
 import java.util.Arrays;
@@ -68,39 +70,39 @@ public class Team {
         }
         // Generate DEs
         for (int i = 0; i < numDEs; i++) {
-            players[index++] = DEs[i] = new OffensivePlayer(Position.DE);
+            players[index++] = DEs[i] = new DefensivePlayer(Position.DE);
         }
         // Generate DTs
         for (int i = 0; i < numDTs; i++) {
-            players[index++] = DTs[i] = new OffensivePlayer(Position.DT);
+            players[index++] = DTs[i] = new DefensivePlayer(Position.DT);
         }
         // Generate OLBs
         for (int i = 0; i < numOLBs; i++) {
-            players[index++] = OLBs[i] = new OffensivePlayer(Position.OLB);
+            players[index++] = OLBs[i] = new DefensivePlayer(Position.OLB);
         }
         // Generate CBs
         for (int i = 0; i < numCBs; i++) {
-            players[index++] = CBs[i] = new OffensivePlayer(Position.CB);
+            players[index++] = CBs[i] = new DefensivePlayer(Position.CB);
         }
         // Generate Ss
         for (int i = 0; i < numSs; i++) {
-            players[index++] = Ss[i] = new OffensivePlayer(Position.S);
+            players[index++] = Ss[i] = new DefensivePlayer(Position.S);
         }
         // Generate MLBs
         for (int i = 0; i < numMLBs; i++) {
-            players[index++] = MLBs[i] = new OffensivePlayer(Position.MLB);
+            players[index++] = MLBs[i] = new DefensivePlayer(Position.MLB);
         }
         // Generate Ks
         for (int i = 0; i < numKs; i++) {
-            players[index++] = Ks[i] = new OffensivePlayer(Position.K);
+            players[index++] = Ks[i] = new SpecialTeamsPlayer(Position.K);
         }
         // Generate Ps
         for (int i = 0; i < numPs; i++) {
-            players[index++] = Ps[i] = new OffensivePlayer(Position.P);
+            players[index++] = Ps[i] = new SpecialTeamsPlayer(Position.P);
         }
         // Generate LSs
         for (int i = 0; i < numLSs; i++) {
-            players[index++] = LSs[i] = new OffensivePlayer(Position.LS);
+            players[index++] = LSs[i] = new SpecialTeamsPlayer(Position.LS);
         }
 
         reOrderDepthChart();
@@ -162,7 +164,7 @@ public class Team {
     public Player[] getPlayers() {
         return players;
     }
-    public Player[] getPositionList(Position position) {
+    public Player[] getPositionArray(Position position) {
         return switch (position) {
             case QB -> QBs;
             case RB -> RBs;
@@ -250,7 +252,7 @@ public class Team {
         int weightedRating = (4 * offenseRating + 4 * defenseRating + specialRating) / 9;
 
         // Ensure the overall team rating is between 0 and 100
-        int overallRating = Math.max(0, Math.min(100, weightedRating));
+        int overallRating = Math.max(0, Math.min(99, weightedRating));
         return overallRating;
     }
 }
