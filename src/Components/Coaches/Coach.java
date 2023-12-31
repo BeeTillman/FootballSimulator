@@ -1,11 +1,13 @@
 package Components.Coaches;
 
+import Components.Coaches.Stats.CoachStats;
 import Components.Players.RandomDataGenerator;
 
 public abstract class Coach {
     private CoachType coachType;
     private String name;
     private int rating;
+    private CoachStats coachStats = new CoachStats();
 
     // Getters and Setters
     public CoachType getCoachType() {
@@ -32,10 +34,19 @@ public abstract class Coach {
         this.rating = rating;
     }
 
+    public CoachStats getCoachStats() {
+        return coachStats;
+    }
+
+    public void setCoachStats(CoachStats coachStats) {
+        this.coachStats = coachStats;
+    }
+
     // Constructor
     public Coach(CoachType coachType) {
         this.coachType = coachType;
         this.name = new RandomDataGenerator().getRandomName();
         this.rating = new RandomDataGenerator().getRandomRating();
+        this.coachStats = new CoachStats();
     }
 }
