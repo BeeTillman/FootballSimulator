@@ -6,7 +6,6 @@ import Components.Teams.Team;
 public class test {
     public static void main(String[] args){
         Team teamOne = new Team();
-        teamOne.generatePlayers();
         System.out.println(teamOne);
     }
 }

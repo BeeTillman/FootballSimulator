@@ -1,11 +1,8 @@
 package Components.Teams;
 
-import Components.Players.Player;
-import Components.Players.Position;
-import Components.Players.PositionedPlayers.DefensivePlayer;
-import Components.Players.PositionedPlayers.OffensivePlayer;
-import Components.Players.PositionedPlayers.SpecialTeamsPlayer;
-import Components.Players.RandomDataGenerator;
+import Components.Coaches.*;
+import Components.Players.*;
+import Components.Players.PositionedPlayers.*;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -14,6 +11,7 @@ public class Team {
 
     private String teamCity;
     private String teamMascot;
+    private Coach[] coaches = new Coach[4]; // 0.Head Coach, 1.Offensive Coordinator, 2.Defensive Coordinator, 3.Special Teams Coordinator
 
     private int numQBs = 2, numRBs = 4, numWRs = 6, numTEs = 3, numOTs = 3, numOGs = 4, numCs = 2; // Number of players at each offensive position
 
@@ -32,6 +30,8 @@ public class Team {
     public Team() {
         this.teamCity = new RandomDataGenerator().getRandomTeamCity();
         this.teamMascot = new RandomDataGenerator().getRandomTeamMascot();
+        generatePlayers();
+        generateCoaches();
     }
 
     /**
@@ -129,13 +129,26 @@ public class Team {
         Arrays.sort(LSs, Comparator.comparing(Player::getRating).reversed());
     }
 
+    public void setCoaches(Coach headCoach, Coach offensiveCoordinator, Coach defensiveCoordinator) {
+        coaches[0] = headCoach;
+        coaches[1] = offensiveCoordinator;
+        coaches[2] = defensiveCoordinator;
+    }
+
+    public void generateCoaches() {
+        coaches[0] = new HeadCoach(CoachType.HC);
+        coaches[1] = new OffensiveCoordinator(CoachType.OC);
+        coaches[2] = new DefensiveCoordinator(CoachType.DC);
+        coaches[3] = new SpecialTeamsCoordinator(CoachType.STC);
+    }
+
     @Override
     public String toString() {
         return "[ " + teamCity + " " + teamMascot + " ]" + "\n" +
-                "[ Team Rating: " + getTeamRating() + " ]" + "\n" +
-                "[ Offense Rating: " + getTeamOffenseRating() + " ]" + "\n" +
-                "[ Defense Rating: " + getTeamDefenseRating() + " ]" + "\n" +
-                "[ Special Teams Rating: " + getTeamSpecialRating() + " ]" + "\n" +
+                "[ Team Rating: " + getTeamRating() + " HC:" + coaches[0] + " ]" + "\n" +
+                "[ Offense Rating: " + getTeamOffenseRating() + " OC:" + coaches[1] + " ]" + "\n" +
+                "[ Defense Rating: " + getTeamDefenseRating() + " DC:" + coaches[2] + " ]" + "\n" +
+                "[ Special Teams Rating: " + getTeamSpecialRating() + " STC:" + coaches[3] + " ]" + "\n" +
                 "QBs:" + "\n" + Arrays.toString(QBs) + "\n" +
                 "RBs:" + "\n" + Arrays.toString(RBs) + "\n" +
                 "WRs:" + "\n" + Arrays.toString(WRs) + "\n" +

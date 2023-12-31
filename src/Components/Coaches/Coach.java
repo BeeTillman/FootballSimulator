@@ -49,4 +49,11 @@ public abstract class Coach {
         this.rating = new RandomDataGenerator().getRandomRating();
         this.coachStats = new CoachStats();
     }
+
+    // Methods
+
+    @Override
+    public String toString() {
+        return name + "(" +rating+ ")";
+    }
 }
