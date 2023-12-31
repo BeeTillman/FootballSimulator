@@ -164,6 +164,65 @@ public class Team {
     public Player[] getPlayers() {
         return players;
     }
+    public Player getPlayer(int index) {
+        return players[index];
+    }
+    public Player[] getQBs() {
+        return QBs;
+    }
+    public Player[] getRBs() {
+        return RBs;
+    }
+    public Player[] getWRs() {
+        return WRs;
+    }
+    public Player[] getTEs() {
+        return TEs;
+    }
+    public Player[] getOTs() {
+        return OTs;
+    }
+    public Player[] getOGs() {
+        return OGs;
+    }
+    public Player[] getCs() {
+        return Cs;
+    }
+    public Player[] getDEs() {
+        return DEs;
+    }
+    public Player[] getDTs() {
+        return DTs;
+    }
+    public Player[] getOLBs() {
+        return OLBs;
+    }
+    public Player[] getCBs() {
+        return CBs;
+    }
+    public Player[] getSs() {
+        return Ss;
+    }
+    public Player[] getMLBs() {
+        return MLBs;
+    }
+    public Player[] getKs() {
+        return Ks;
+    }
+    public Player[] getPs() {
+        return Ps;
+    }
+    public Player[] getLSs() {
+        return LSs;
+    }
+    public Player getPlayerByJerseyNumber(int number) {
+        for (Player player : players) {
+            if (player.getJerseyNum() == number) {
+                return player;
+            }
+        }
+        return null;
+    }
     public Player[] getPositionArray(Position position) {
         return switch (position) {
             case QB -> QBs;
