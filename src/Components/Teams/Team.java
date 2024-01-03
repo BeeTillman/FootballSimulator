@@ -327,4 +327,7 @@ public class Team {
         int overallRating = Math.max(0, Math.min(99, weightedRating));
         return overallRating;
     }
+    public String getTeamName(){
+        return teamCity + " " + teamMascot;
+    }
 }
